@@ -1,0 +1,50 @@
+/* Modificando variables de Bootstrap y variables propias */
+:root {
+    /* Variables de Bootstrap */
+    --bs-body-bg: #FFFFFF;
+    --bs-body-color: #1C1C1E;
+    --bs-primary: #1B3A6B;
+    --bs-primary-rgb: 27, 58, 107;
+    --bs-secondary: #2E5FA3;
+    --bs-secondary-rgb: 46, 95, 163;
+    --bs-dark: #1C1C1E;
+    --bs-dark-rgb: 28, 28, 30;
+    --bs-table-striped-bg: #F4F6FA;
+    --bs-table-hover-bg: #E8EDF5; 
+
+    /* Tipografia */
+    --title-font: 'Playfair Display', serif;
+    --body-font: 'Source Sans 3', sans-serif;
+}
+
+body {
+    font-family: var(--body-font);
+    color: #1C1C1E;
+    line-height: 1.6;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.senator-link {
+    text-decoration: none;
+    color: var(--bs-secondary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.25s;
+}
+
+.senator-link:hover { color: #C8350B; }
+
+
+.footer p {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.state-filter { border-color: 1px solid #1B3A6B; }
