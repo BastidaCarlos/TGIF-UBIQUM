@@ -11,6 +11,8 @@
     --bs-dark-rgb: 28, 28, 30;
     --bs-table-striped-bg: #F4F6FA;
     --bs-table-hover-bg: #E8EDF5; 
+    --bs-light: #E8EDF5;
+    --bs-light-rgb: 232, 237, 245;
 
     /* Tipografia */
     --title-font: 'Playfair Display', serif;
@@ -23,6 +25,32 @@ body {
     line-height: 1.6;
 }
 
+.logo {
+    font-weight: bold;
+    font-family: var(--title-font);
+}
+
+.nav-item a {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.nav-pills .nav-link { color: var(--bs-secondary); }
+
+.nav-pills .nav-link.active {
+    background-color: var(--bs-secondary);
+    color: white;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: var(--bs-table-striped-bg);
+    color: var(--bs-primary) !important;
+}
+
+h1, h2, h3 {
+    font-family: var(--title-font);
+}
+
 .section-title {
     text-align: center;
     font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
@@ -31,7 +59,15 @@ body {
     letter-spacing: 2px;
 }
 
-.senator-link {
+.name {
+    text-decoration: none;
+    color: var(--bs-secondary) !important;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.25s;
+}
+
+.name-link {
     text-decoration: none;
     color: var(--bs-secondary);
     cursor: pointer;
@@ -39,7 +75,7 @@ body {
     transition: color 0.25s;
 }
 
-.senator-link:hover { color: #C8350B; }
+.name-link:hover { color: #C8350B; }
 
 
 .footer p {

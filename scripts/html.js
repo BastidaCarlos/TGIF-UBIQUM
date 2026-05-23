@@ -13,6 +13,11 @@ const parties = {
     ID: 'Independent'
 }
 
+// Calcular años en servicio
+const yearsInOffice = (member) => {
+    return member.seniority ?? (member.end_date.slice(0, 4) - member.begin_date.slice(0, 4));
+}
+
 // Manejo de archivo JSON states y creación del select en index.html 
 export const makeStatesMenu = (stateIncluded) => {
     return fetch('./src/states.json')
@@ -40,11 +45,11 @@ export const makeMemberRows = (members, selectedParties, selectedState) => {
     .filter(member => selectedParties.includes(member.party))
     .filter(member => selectedState === "" || member.state === selectedState)
     .map(member => `<tr>
-        <td><a href="${member.url}" target="_blank" class="senator-link">${member.first_name} ${member.last_name}</a></td>
+        <td class="name">${member.url ? `<a href="${member.url}" target="_blank" class="name-link">${member.first_name} ${member.last_name}</a>` : `${member.first_name} ${member.last_name}`}</td>
         <td>${parties[member.party]}</td>
         <td>${member.state}</td>
-        <td>${member.seniority}</td>
-        <td>${member.votes_with_party_pct}</td>
+        <td>${yearsInOffice(member)}</td>
+        <td>${member.votes_with_party_pct ?? `N/A`}</td>
         </tr>`)
         .join('');
 }

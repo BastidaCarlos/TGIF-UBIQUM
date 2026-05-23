@@ -10,68 +10,78 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
     <header>
-        <nav class="navbar bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand fs-2 fw-bold text-white align-middle" href="#">
-                    <img src="assets/logo.png" alt="Logo" width="40" class="d-inline-block align-middle me-2">
+        <div class="bg-primary py-4">
+            <div class="container">
+                <a href="index.html" class="navbar-brand fs-2 fw-bold text-white logo">
+                    <img src="assets/logo.png" alt="Logo TGIF" width="60" class="d-inline-block align-middle me-2">
                     TGIF
                 </a>
             </div>
-        </nav>
+        </div>
+
+            <!-- Navbar -->
+             <nav class="navbar bg-light">
+                <div class="container">
+                    <ul class="nav nav-pills nav-justified pt-1 pb-1">
+                        <li class="nav-item me-2">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="members.html" class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                                Congress 113
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="members.html?chamber=house" class="dropdown-item">House</a></li>
+                                <li><a href="members.html?chamber=senate" class="dropdown-item">Senate</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+             </nav>
     </header>
     <main class="flex-grow-1">
-        <section class="container main-section py-5 d-flex flex-column mb-3">
-           <header class="section-header container-sm">
-            <h1 class="section-title pb-4">Senators</h1>
-            <p class="header-description lead">
-                First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution.
-            </p>
-            <p class="header-description">
-                Each state is represented by two senators, regardless of population, who serve staggered six-year terms.
-            </p>
-            <p class="header-description">
-                The Senate has several exclusive powers not granted to the House, including consenting to treaties as precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federals officials impeached by the House.
-            </p>
-           </header> 
-           <div class="filters d-flex p-3 align-items-center gap-3 bg-light rounded shadow-sm justify-content-between">
-            <div class="checkbox-filters">
-             <p class="filter-title fw-bold mb-0">Filter by Party:</p>
-             <div class="form-check form-check-inline">
-                <input class="party-filter form-check-input" type="checkbox" name="party" id="D" value="D" checked>
-                <label class="form-check-label" for="D">Democrat</label>
-             </div>
-             <div class="form-check form-check-inline">
-                <input class="party-filter form-check-input" type="checkbox" name="party" id="R" value="R" checked>
-                <label class="form-check-label" for="R">Republican</label>
-             </div>
-             <div class="form-check form-check-inline">
-                <input class="party-filter form-check-input" type="checkbox" name="party" id="ID" value="ID" checked>
-                <label class="form-check-label" for="ID">Independent</label>
-             </div>
-             </div>
-             <div class="dropdown-select d-flex flex-column">
-                <label for="states" class="fw-bold">Filter by State:</label>
-                <select name="states" id="states" class="state-filter form-select">
-                </select>
-             </div>
-           </div>
-           <div class="table-responsive">
-             <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th class="bg-secondary text-white">Name</th>
-                        <th class="bg-secondary text-white">Party</th>
-                        <th class="bg-secondary text-white">State</th>
-                        <th class="bg-secondary text-white">Years in Office</th>
-                        <th class="bg-secondary text-white">% Votes With Party</th>
-                    </tr>
-                </thead>
-                <tbody id="senator-table-content">
-                </tbody>
-             </table>
-           </div>
+        <section class="py-5">
+            <div class="container">
+                <div class="row mb-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h1 class="fw-bold text-primary mb-3">About Us</h1>
+                        <div class="border-start border-3 border-secondary ps-4 mb-4">
+                            <p class="lead text-secondary mb-0">
+                                Openness, accountability, and honesty define government transparency. In a free society, transparency is government's obligation to share information with citizens. It is at the heart of how citizens hold their public officials accountable. Here at TGIF we believe that government should be transparent.
+                            </p>
+                            <p>
+                                Governments exist to serve the people. Information on how officials conduct the public business and spend taxpayer money must be readily available and easily understood. This transparency allows good and just governance. Transparency promotes accountability and provides information for citizens about what their Government is doing.
+                            </p>
+                            <p>
+                                We also believe that government should be participatory. Public engagement enhances the Government's effectiveness and improves the quality of its decisions. Knowledge is widely dispersed in society, and public officials benefit from having access to that dispersed knowledge. We invite you to use our site to become actively engaged in American government.
+                            </p>
+                            <p>
+                                TGIF works to disclose information in forms that the public can readily find and use. We solicit public feedback to identify information of greatest use to the public.
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="border-secondary opacity-25 mb-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="fw-bold text-primary mb-4">Background History of Government Transparency</h2>
+                            <p>
+                                In the West, the idea that government should be open to public scrutiny and susceptible to public opinion dates back at least to the time of the Enlightenment, when many philosophes made an attack on absolutist doctrine of state secrecy, a core part of their intellectual project. The passage of formal legislative instruments to this end can also be traced to this time with Sweden, for example, (which then included Finland as a Swedish-governed territory) enacting free press legislation as part of its constitution (Freedom of the Press Act, 1766). This approach, and that of the philosophes more broadly, is strongly related to recent historiography on the eighteenth-century public sphere. 
+                            </p>
+                            <p>
+                                Influenced by Enlightenment thought, the revolutions in America (1776) and France (1789), freedom of the press enshrined provisions and requirements for public budgetary accounting and freedom of the press in constitutional articles. In the nineteenth century, attempts by Metternichean statesmen to row back on these measures were vigorously opposed by a number of eminent liberal politicians and writers, Bentham, Mill and Acton prominent among the latter.
+                            </p>
+                            <p>
+                                Open government is widely seen to be a key hallmark of contemporary democratic practice and is often linked to the passing of freedom of information legislation. Scandinavian countries claim to have adopted the first freedom of information legislation, dating the origins of its modern provisions to the eighteenth century and Finland continuing the presumption of openness after gaining independence in 1917, passing its Act on Publicity of Official Documents in 1951 (superseded by new legislation in 1999).
+                            </p>
+                            <p>
+                                The United States passed its Freedom of Information Act (FOIA) in 1966, FOIAs, Access to Information Acts (AIAs) or equivalent laws were passed in Denmark and Norway in 1970.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer class="bg-dark text-white footer">
@@ -81,33 +91,5 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module">
-        import { fetchJson, makeMemberRows, filters, makeStatesMenu } from "./scripts/html.js";
-
-
-        fetchJson('./src/pro-congress-117-senate.json').then((data) => {
-            const stateIncluded = new Set(data.map(member => member.state));
-            const renderTable = () => {
-                const selectedParty = filters(); 
-                const selectedState = document.querySelector('.state-filter').value
-                document.querySelector('#senator-table-content').innerHTML = makeMemberRows(data, selectedParty, selectedState);
-            }
-            
-            renderTable();
-
-            const checkboxes = document.querySelectorAll('.party-filter');
-            checkboxes.forEach(check => {
-                check.addEventListener('change', renderTable)
-            });
-
-            const selectState = document.querySelector('.state-filter');
-            selectState.addEventListener('change', renderTable);
-
-            
-            makeStatesMenu(stateIncluded).then((html) => {
-                document.querySelector('.state-filter').innerHTML = html;
-            })
-        });
-    </script>
 </body>
 </html>
