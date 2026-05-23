@@ -33,8 +33,8 @@
                                 Congress 113
                             </a>
                             <ul class="dropdown-menu" id="chamberSelect">
-                                <li value="house"><a href="members.html?chamber=house" class="dropdown-item">House</a></li>
-                                <li value="senate"><a href="members.html?chamber=senate" class="dropdown-item">Senate</a></li>
+                                <li value="house"><a class="dropdown-item" data-chamber="house">House</a></li>
+                                <li value="senate"><a class="dropdown-item" data-chamber="senate">Senate</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -113,36 +113,48 @@
     <script type="module">
         import { fetchJson, makeMemberRows, filters, makeStatesMenu } from "./scripts/html.js";
 
-        const params = new URLSearchParams(window.location.search);
-        const validChambers = [ 'senate', 'house'];
-        const chamber = validChambers.includes(params.get('chamber')) ? params.get('chamber') : 'senate';
-        const path = `./src/pro-congress-117-${chamber}.json`
+        let data  = [];
 
-        document.querySelector(`#${chamber}-section`).classList.remove('d-none');
+        const renderTable = () => {
+            const selectedParty = filters();
+            const selectedState = document.querySelector('.state-filter').value
+            document.querySelector('#senator-table-content').innerHTML = makeMemberRows(data,  selectedParty, selectedState);
+        }
 
-        fetchJson(path).then((data) => {
-            const stateIncluded = new Set(data.map(member => member.state));
-            const renderTable = () => {
-                const selectedParty = filters(); 
-                const selectedState = document.querySelector('.state-filter').value
-                document.querySelector('#senator-table-content').innerHTML = makeMemberRows(data, selectedParty, selectedState);
-            }
-            
-            renderTable();
+        const loadChamber = (chamber) => {
+            fetchJson(`./src/pro-congress-117-${chamber}.json`).then(result => {
+                data = result;
 
-            const checkboxes = document.querySelectorAll('.party-filter');
-            checkboxes.forEach(check => {
-                check.addEventListener('change', renderTable)
-            });
+                document.querySelector('.state-filter').value = '';
 
-            const selectState = document.querySelector('.state-filter');
-            selectState.addEventListener('change', renderTable);
+                renderTable();
 
-            
-            makeStatesMenu(stateIncluded).then((html) => {
+                const stateIncluded = new Set(data.map(member => member.state));
+                makeStatesMenu(stateIncluded).then((html) => {
                 document.querySelector('.state-filter').innerHTML = html;
+        })
             })
+        }
+
+        const checkboxes = document.querySelectorAll('.party-filter');
+        checkboxes.forEach(check => {
+            check.addEventListener('change', renderTable)
         });
+
+        const selectState = document.querySelector('.state-filter');
+        selectState.addEventListener('change', renderTable);
+
+        loadChamber('senate');
+
+        const chamberOptions = document.querySelectorAll('.dropdown-item');
+        chamberOptions.forEach(item => {
+           item.addEventListener('click', (event) => {
+            event.preventDefault();
+            const chamber = event.target.dataset.chamber;
+            loadChamber(chamber);
+           }) 
+        })
+
     </script>
 </body>
 </html>
