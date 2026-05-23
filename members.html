@@ -120,18 +120,23 @@
             const selectedState = document.querySelector('.state-filter').value
             document.querySelector('#senator-table-content').innerHTML = makeMemberRows(data,  selectedParty, selectedState);
         }
-
+        
         const loadChamber = (chamber) => {
             fetchJson(`./src/pro-congress-117-${chamber}.json`).then(result => {
                 data = result;
 
                 document.querySelector('.state-filter').value = '';
 
+                document.getElementById('senate-section').classList.add('d-none');
+                document.getElementById('house-section').classList.add('d-none');
+                document.getElementById(`${chamber}-section`).classList.remove('d-none');
+
                 renderTable();
 
                 const stateIncluded = new Set(data.map(member => member.state));
                 makeStatesMenu(stateIncluded).then((html) => {
                 document.querySelector('.state-filter').innerHTML = html;
+
         })
             })
         }
