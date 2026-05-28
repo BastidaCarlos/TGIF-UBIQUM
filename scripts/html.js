@@ -3,7 +3,12 @@
 export const fetchJson = (path) => {
     return fetch(path)
     .then(respuesta => respuesta.json())
-    .then(resultados => resultados.results[0].members);
+    .then(resultados => {
+        return {
+            members: resultados.results[0].members,
+            statistics: {}
+        }
+    });
 }
 
 // "Diccionario" de partidos

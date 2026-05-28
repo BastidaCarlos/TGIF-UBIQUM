@@ -37,6 +37,24 @@
                                 <li value="senate"><a href="members.html?chamber=senate" class="dropdown-item">Senate</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a href="attendance.html" class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                               Attendance 
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="attendance.html?chamber=house" class="dropdown-item">House</a></li>
+                                <li><a href="attendance.html?chamber=senate" class="dropdown-item">Senate</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="loyalty.html" class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                               Loyalty 
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="loyalty.html?chamber=house" class="dropdown-item">House</a></li>
+                                <li><a href="loyalty.html?chamber=senate" class="dropdown-item">Senate</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
              </nav>
@@ -121,11 +139,12 @@
         document.querySelector(`#${chamber}-section`).classList.remove('d-none');
 
         fetchJson(path).then((data) => {
-            const stateIncluded = new Set(data.map(member => member.state));
+            console.log(data);
+            const stateIncluded = new Set(data.members.map(member => member.state));
             const renderTable = () => {
                 const selectedParty = filters(); 
                 const selectedState = document.querySelector('.state-filter').value
-                document.querySelector('#senator-table-content').innerHTML = makeMemberRows(data, selectedParty, selectedState);
+                document.querySelector('#senator-table-content').innerHTML = makeMemberRows(data.members, selectedParty, selectedState);
             }
             
             renderTable();

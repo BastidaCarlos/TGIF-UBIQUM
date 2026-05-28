@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TGIF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <div class="bg-primary py-4">
+            <div class="container">
+                <a href="index.html" class="navbar-brand fs-2 fw-bold text-white logo">
+                    <img src="assets/logo.png" alt="Logo TGIF" width="60" class="d-inline-block align-middle me-2">
+                    TGIF
+                </a>
+            </div>
+        </div>
+
+            <!-- Navbar -->
+             <nav class="navbar bg-light">
+                <div class="container">
+                    <ul class="nav nav-pills nav-justified pt-1 pb-1">
+                        <li class="nav-item me-2">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="members.html" class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                                Congress 113
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="members.html?chamber=house" class="dropdown-item">House</a></li>
+                                <li><a href="members.html?chamber=senate" class="dropdown-item">Senate</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item me-2 dropdown">
+                            <a href="attendance.html" class="nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                               Attendance 
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="attendance.html?chamber=house" class="dropdown-item">House</a></li>
+                                <li><a href="attendance.html?chamber=senate" class="dropdown-item">Senate</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item me-2 dropdown">
+                            <a href="loyalty.html" class="nav-link active text-white dropdown-toggle text-secondary" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                               Loyalty 
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="loyalty.html?chamber=house" class="dropdown-item">House</a></li>
+                                <li><a href="loyalty.html?chamber=senate" class="dropdown-item">Senate</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+             </nav>
+    </header>
+    <main class="flex-grow-1">
+        <section class="container main-section py-5 d-flex flex-column mb-3">
+           <div class="section-header container-sm">
+                <h1 class="section-title pb-4">Party Loyalty</h1>
+                <p class="header-description lead">
+                    Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for ther party's nominee for office and legislation that backs their party's agenda.
+                </p>
+           </div>
+            <div class="container-sm mt-4">
+                <h2 id="chamber-title" class="text-secondary fw-bold text-uppercase"></h2>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-dark text-white footer">
+        <div class="text-center p-3">
+            <img src="assets/logo.png" alt="Logo TGIF">
+            <p class="pt-3">&copy; 2026 TGIF | All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+        
+        const params = new URLSearchParams(window.location.search);
+        const validChambers = ['senate', 'house'];
+        const chamber = validChambers.includes(params.get('chamber')) ? params.get('chamber') : 'senate';
+
+        document.getElementById('chamber-title').textContent = `${chamber} at a Glance`
+
+    </script>
+</body>
+</html>
